@@ -3,6 +3,7 @@ name: Hello World Workflow
 on:
   push:
     branches: [main, develop]
+    # Task 2: Triggered by push event (CHAMIKA DENUWAN)
   workflow_dispatch:
 
 jobs:
