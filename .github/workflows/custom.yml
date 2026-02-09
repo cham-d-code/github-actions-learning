@@ -20,5 +20,5 @@ jobs:
         # This tells GitHub to run the commands inside the sample-app folder
         working-directory: ./sample-app 
         run: |
-          npm install
-          npm test
+  npm ci
+  npm test -- --watchAll=false
