@@ -20,9 +20,7 @@ jobs:
           node-version: 18
 
       - name: Install and Test
-       
         working-directory: ./sample-app
         run: |
           npm install
-          # The CI=true flag ensures tests run once and exit
-          CI=true npm test
+          npm test -- --forceExit
