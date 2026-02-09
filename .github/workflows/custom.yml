@@ -2,11 +2,14 @@ name: Custom Workflow
 
 on:
   push:
-    branches: [develop] # Only triggers when pushing to the develop branch
+    branches: [develop]
 
 jobs:
   custom-job:
     runs-on: ubuntu-latest
+   
+    timeout-minutes: 10 
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -17,8 +20,9 @@ jobs:
           node-version: 18
 
       - name: Install and Test
-        # This tells GitHub to run the commands inside the sample-app folder
-        working-directory: ./sample-app 
+       
+        working-directory: ./sample-app
         run: |
-  npm ci
-  npm test -- --watchAll=false
+          npm install
+          # The CI=true flag ensures tests run once and exit
+          CI=true npm test
